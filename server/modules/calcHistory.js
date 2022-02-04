@@ -1,3 +1,3 @@
-calcHistory = [];
+let calcHistory = [];
 
 module.exports = calcHistory;

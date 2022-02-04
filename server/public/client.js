@@ -3,7 +3,9 @@ $(document).ready(onReady);
 function onReady(){
     $('#calcContainer').on('click', '.buttons', addMath);
     $('#clearBtn').on('click', clearMath);
-    $('#equalsBtn').on('click', calculate)
+    $('#equalsBtn').on('click', calculate);
+    $('#deleteBtn').on('click', clearHistory)
+    resultHistory()
 }
 
 function addMath() {
@@ -18,6 +20,9 @@ function clearMath() {
 }
 
 function calculate() {
+    if ($("#inputField").val() === '') {
+        $("#inputField").val('Enter Some Digits')
+    } else {
     $.ajax({
         method: 'POST',
         url: '/calculate',
@@ -27,8 +32,11 @@ function calculate() {
             }
         }
     }).then(function(response){
-        renderResult(response); 
+        renderResult(response);
+        resultHistory(); 
     })
+    $("#inputField").val('')
+    }
 }
 
 function renderResult(result) {
@@ -41,7 +49,7 @@ function resultHistory() {
         method: 'GET',
         url: '/calcHistory'
     }).then(function(response){
-      console.log(response);
+      renderHistory(response);
     })
 }
 
@@ -50,7 +58,17 @@ function renderHistory(arr) {
     $('#historyList').empty();
     for (calc of arr) {
         $('#historyList').append(`<li>
-        ${calc.expression} ${calc.result}
+        ${calc.expression} = ${calc.result}
         </li>`)
     }
+}
+
+function clearHistory() {
+    $.ajax({
+        method: 'DELETE',
+        url: '/calcHistory'
+    }).then(function(response){
+        resultHistory();
+        $('#theResults').empty();
+    })
 }

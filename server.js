@@ -12,14 +12,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/calculate', function(req, res){
     let expression = req.body.expression.input;
-    result = eval(expression); // Possible security risk?
+    result = Function('return ' + expression)() 
     let store = {
         expression: expression,
         result: result
     }
     calcHistory.unshift(store);
-    res.json(result)
-})
+    res.json(result);
+});
+
 
 app.get('/calculate', function(req, res) {
     res.send(result);
@@ -28,10 +29,17 @@ app.get('/calculate', function(req, res) {
 app.get('/calcHistory', function(req, res){
     res.send(calcHistory)
     console.log(calcHistory);
-    
 })
 
+// app.delete('/calcHistory', function(req,res){
+//     calcHistory = [];
+//     res.sendStatus(201)
+// })
 
+app.delete('/calcHistory', (req,res) =>{
+    calcHistory.length = 0
+    res.sendStatus(201);
+})
 
 
 
