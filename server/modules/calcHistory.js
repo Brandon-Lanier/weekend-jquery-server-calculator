@@ -1,0 +1,3 @@
+calcHistory = [];
+
+module.exports = calcHistory;
