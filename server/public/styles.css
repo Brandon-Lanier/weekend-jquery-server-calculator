@@ -13,7 +13,44 @@ header {
     margin: 10px;
     padding: 20px;
 }
+
 .buttons {
     padding: 5px;
     margin: 5px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    color: black;
+    background-color: rgb(213, 215, 188)
+}
+
+.operators {
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(68, 68, 147);
+    color: white;
+}
+
+#calcContainer {
+    background-color: black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+}
+#equalsBtn {
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(68, 68, 147);
+    color: white;
+}
+
+li{
+    margin: 15px;
 }

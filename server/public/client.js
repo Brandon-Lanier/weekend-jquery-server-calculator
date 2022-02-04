@@ -5,8 +5,10 @@ function onReady(){
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', calculate);
     $('#deleteBtn').on('click', clearHistory)
-    resultHistory()
+    resultHistory();
 }
+
+// Make a function to evaluate the string entered before sending to server
 
 function addMath() {
     // if ($("#inputField").val() == null) {
@@ -54,7 +56,6 @@ function resultHistory() {
 }
 
 function renderHistory(arr) {
-    console.log(arr);
     $('#historyList').empty();
     for (calc of arr) {
         $('#historyList').append(`<li>

@@ -12,10 +12,11 @@
 <body>
     <div id="wrapper">
         <header>
-        Server Side Calculator
+        <h1>Server Side Calculator</h1>
         </header>
     <main>
-       <section id="calcContainer">
+       <section id="calculator">
+        <div id="calcContainer">
         <div id="inputBox">
            <input type="text" id="inputField">
            <button id="clearBtn">C</button>
@@ -24,35 +25,37 @@
             <button id="7btn" class="buttons" value="7" >7</button>
             <button id="8btn" class="buttons" value="8">8</button>
             <button id="9btn" class="buttons" value="9">9</button>
-            <button id="plusBtn" class="buttons" value="+">+</button>
+            <button id="plusBtn" class="operators" value="+">+</button>
         </div>
         <div id="middleDigits">
             <button id="4btn" class="buttons" value="4">4</button>
             <button id="5btn" class="buttons" value="5">5</button>
             <button id="6btn" class="buttons" value="6">6</button>
-            <button id="minusBtn" class="buttons" value="-">-</button>
+            <button id="minusBtn" class="operators" value="-">-</button>
         </div>
         <div id="lowerDigits">
             <button id="1btn" class="buttons" value="1">1</button>
             <button id="2btn" class="buttons" value="2">2</button>
             <button id="3btn" class="buttons" value="3">3</button>
-            <button id="multiBtn" class="buttons" value="*">*</button>
+            <button id="multiBtn" class="operators" value="*">*</button>
         </div>
         <div id="bottomDigits">
             <button id="0btn" class="buttons" value="0">0</button>
             <button id="dotBtn" class="buttons" value=".">.</button>
             <button id="equalsBtn" value="=">=</button>
-            <button id="divideBtn" class="buttons" value="/">/</button>
+            <button id="divideBtn" class="operators" value="/">/</button>
+        </div>
         </div>
         </section>  
         <section id="outputs">
             <div id="calcOutput">
                 <h2 id="calculation">
-                    <span id="theResults"></span>
-                </h2>
+                    <h2>Results: <span id="theResults"></span></h2>
+                
             </div>
             <button id="deleteBtn">Clear History</button>
             <div id="history">
+                <h2>Calculation History</h2>
                 <ul id="historyList"></ul>
             </div>
         </section>
