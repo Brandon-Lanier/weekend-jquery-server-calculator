@@ -24,7 +24,7 @@ header {
     color: black;
     background-color: rgb(213, 215, 188)
 }
-
+ 
 .operators {
     padding: 5px;
     margin: 5px;
@@ -53,4 +53,10 @@ header {
 
 li{
     margin: 15px;
+}
+
+#inputField {
+    background-color: white;
+    width: 200px;
+    height: 50px;
 }

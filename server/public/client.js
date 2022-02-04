@@ -2,23 +2,36 @@ $(document).ready(onReady);
 
 function onReady(){
     $('#calcContainer').on('click', '.buttons', addMath);
+    $('#calcContainer').on('click', '.operators', addOperator);
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', calculate);
-    $('#deleteBtn').on('click', clearHistory)
+    $('#deleteBtn').on('click', clearHistory);
     resultHistory();
 }
 
 // Make a function to evaluate the string entered before sending to server
 
-function addMath() {
+// function addMath() {
     // if ($("#inputField").val() == null) {
     //     $("#inputField").val($(this).text());
     //     } else
-         $("#inputField").val($("#inputField").val() + $(this).text())
+    //     if() $("#inputField").val($("#firstNumber").val() + $(this).text())
+
+// }
+
+function addMath() {
+    let firstNumber = $("#firstNumber").val();
+    let operator = $('#operator').val();
+    let lastNumber = $('#secondNumber').val();
+    $("#inputField").val($("#inputField").val() + $(this).text());
+}
+
+function addOperator() {
+    $("#inputField").val($("#inputField").val() + $(this).text());
 }
 
 function clearMath() {
-    $("#inputField").val('')
+    $("#inputField").val('');
 }
 
 function calculate() {
