@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery.js" charset="UTF-8"></script>
+    <script src="client.js" charset="UTF-8"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+        Server Side Calculator
+        </header>
+    <main>
+       <section id="calcContainer">
+        <div id="inputBox">
+           <input type="text" id="inputField">
+           <button id="clearBtn">C</button>
+        </div>
+        <div id="topDigits">
+            <button id="7btn" class="buttons" value="7" >7</button>
+            <button id="8btn" class="buttons" value="8">8</button>
+            <button id="9btn" class="buttons" value="9">9</button>
+            <button id="plusBtn" class="buttons" value="+">+</button>
+        </div>
+        <div id="middleDigits">
+            <button id="4btn" class="buttons" value="4">4</button>
+            <button id="5btn" class="buttons" value="5">5</button>
+            <button id="6btn" class="buttons" value="6">6</button>
+            <button id="minusBtn" class="buttons" value="-">-</button>
+        </div>
+        <div id="lowerDigits">
+            <button id="1btn" class="buttons" value="1">1</button>
+            <button id="2btn" class="buttons" value="2">2</button>
+            <button id="3btn" class="buttons" value="3">3</button>
+            <button id="multiBtn" class="buttons" value="*">*</button>
+        </div>
+        <div id="bottomDigits">
+            <button id="0btn" class="buttons" value="0">0</button>
+            <button id="dotBtn" class="buttons" value=".">.</button>
+            <button id="equalsBtn" class="buttons" value="=">=</button>
+            <button id="divideBtn" class="buttons" value="/">/</button>
+        </div>
+        </section>  
+        <section id="outputs">
+            <div id="calcOutput">
+                <h2 id="calculation">
+                    <span></span>
+                </h2>
+            </div>
+            <div id="history">
+
+            </div>
+        </section>
+    </main>
+    </div>
+</body>
+</html>
