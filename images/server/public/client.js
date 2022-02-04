@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady(){
     $('#calcContainer').on('click', '.buttons', addMath);
-    $('#clearBtn').on('click', clearMath)
+    $('#clearBtn').on('click', clearMath);
 }
 
 function addMath() {
@@ -15,3 +15,4 @@ function addMath() {
 function clearMath() {
     $("#inputField").val('')
 }
+
