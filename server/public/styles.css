@@ -1,3 +1,8 @@
+@font-face {
+    font-family: technology;
+    src: url(Technology.ttf);
+  }
+
 body, html {
     margin: 0;
     padding: 0
@@ -7,6 +12,10 @@ body, html {
     display: flex;
     flex-flow: column wrap;
     align-content: center;
+}
+
+#calculator {
+    align-self: center;
 }
 
 main {
@@ -21,62 +30,104 @@ header {
 }
 
 .buttons {
-    padding: 5px;
     margin: 5px;
-    border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
     color: black;
-    background-color: rgb(213, 215, 188)
+    background-color: rgb(216, 216, 211);
+    border: 1px solid rgb(123, 121, 118);
+    border-bottom: 5px solid rgb(172, 169, 162);
+    /* background-color: rgb(210, 198, 153); */
+    padding: 1px 7px 1px 7px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
 }
- 
+
+.buttons:active{
+    border-bottom: 3px solid #999;
+    top: 3px;
+}
+
 .operators {
     padding: 5px;
     margin: 5px;
     border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    background-color: rgb(68, 68, 147);
-    color: white;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    background-color: #a4a4a4;
+    border: 1px solid rgb(82, 82, 82);
+    border-bottom: 5px solid rgb(89, 89, 89);
+    padding: 1px 7px 1px 7px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+}
+
+.operators:active{
+    border-bottom: 3px solid rgb(70, 69, 69);
+    top: 3px;
 }
 
 #clearBtn {
     padding: 5px;
     margin: 5px;
     border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    background-color: rgb(68, 68, 147);
-    color: white;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    border: 1px solid rgb(110, 66, 66);
+    border-bottom: 5px solid rgb(97, 65, 65);
+    background-color: rgb(198, 115, 115);
+    padding: 1px 7px 1px 7px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
 }
 
+#clearBtn:active{
+    border-bottom: 3px solid rgb(97, 65, 65);
+    top: 3px;
+}
 #calcContainer {
-    background-color: black;
+    background-color: rgb(213, 215, 188);
     border-radius: 10px;
     text-align: center;
     padding: 15px;
+    width: 250px; 
+    box-shadow: 0 5px 6px 0 rgb(108, 108, 108);
 }
 
 #equalsBtn {
-    border: none;
     margin: 5px;
     padding: 5px;
     height: 30px;
     width: 100%;
     font-size: 20px;
+    border: 1px solid rgb(52, 97, 60);
+    border-left: 2px solid rgb(61, 119, 72);
+    border-bottom: 5px solid rgb(60, 116, 71);
     background-color: rgb(95, 182, 113);
+    position: relative;
     color: white;
 }
+
+#equalsBtn:active{
+    border-bottom: 3px solid rgb(52, 97, 60);
+    border-left: 1px solid rgb(52, 97, 60);
+    top: 3px;
+}
+
 .operators, .buttons, #equalsBtn, #clearBtn:hover {
     cursor: pointer;
 }
-#equalsContainer {
+
+/* #equalsContainer {
     display: flex;
     justify-content: center;;
-}
+} */
 
 li{
     margin: 15px;
@@ -87,7 +138,8 @@ li:hover {
 }
 
 #inputField {
-    background-color: white;
+    background-color: black;
+    color: rgb(134, 198, 38);
     width: 200px;
     height: 50px;
     text-align: right;
@@ -95,6 +147,9 @@ li:hover {
     cursor:initial;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: technology;
+    letter-spacing: 2px;
+    
 }
 

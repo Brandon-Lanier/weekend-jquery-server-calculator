@@ -6,7 +6,9 @@ function onReady(){
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', validateInput);
     $('#deleteBtn').on('click', clearHistory);
-    $('#historyList').on('click', '.historyItem', selectHistory)
+    // $('#historyList').on('click', '.historyItem', selectHistory);
+    $('#historyList').on('click', '.deleteHistBtn', deleteHistoryEvent);
+    $('#historyList').on('click', '.recallHistory', recallExpression)
     resultHistory();
 }
 
@@ -68,8 +70,11 @@ function resultHistory() {
 function renderHistory(arr) {
     $('#historyList').empty();
     for (let i = 0; i < arr.length; i++) {
-        $('#historyList').append(`<li class="historyItem" data-id="${[i]}">
-        ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  <button class="recalHistory">Recalculate Expression</button><button class="deleteHistBtn">Delete Expression</button></li>`)
+        $('#historyList').append(`
+        <li class="historyItem" id="${i}" data-id(${arr[i].expression})>
+        ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
+        <button class="recallHistory">Recalculate Expression</button>
+        <button class="deleteHistBtn">Delete Expression</button></li>`)
     }
 }
     
@@ -81,28 +86,37 @@ function renderHistory(arr) {
 
 
 function clearHistory() {
+    $('#theResults').empty();
     $.ajax({
         method: 'DELETE',
         url: '/calcHistory'
     }).then(function(response){
         resultHistory();
-        $('#theResults').empty();
+    }).catch(function(response){
+        console.log('Failed to clear history');
     })
 }
 
-function selectHistory() {
-    let id = $(this).attr('id');
+function recallExpression() {
+    let id = $(this).closest('li').data('exp');
     console.log(this);
     console.log(id);
     
 }
 
 function deleteHistoryEvent() {
+    let id = $(this).parent().attr('id');
+    $(this).parent().parent().remove();
     $.ajax({
         method: 'DELETE',
-        url: '/calcHistory'
+        url: '/removeExp',
+        data: {
+            index: id
+            }
     }).then(function(response){
-        resultHistory();
-        $('#theResults').empty();
+        
+    }).catch(function(response){
+        console.log('Failed to delete expression');
     })
+    resultHistory();
 }

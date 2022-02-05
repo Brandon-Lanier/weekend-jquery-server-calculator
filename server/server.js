@@ -48,8 +48,8 @@ app.get('/calculate', function(req, res) {
 });
 
 app.get('/calcHistory', function(req, res){
-    res.send(calcHistory)
-    console.log(calcHistory);
+    res.send(calcHistory);
+    // console.log(calcHistory);
 })
 
 // app.delete('/calcHistory', function(req,res){
@@ -58,13 +58,19 @@ app.get('/calcHistory', function(req, res){
 // })
 
 app.delete('/calcHistory', (req,res) =>{
-    calcHistory.length = 0
+    calcHistory.length = 0;
     res.sendStatus(201);
 });
 
-app.delete('/calcHistory', (req,res) =>{
-    calcHistory.length = 0
+app.delete('/removeExp', (req,res) =>{
+    let arryI = req.body.index;
+    console.log('array index', req.body);
+    console.log(arryI);
+    calcHistory.splice(arryI, 1)
+    console.log(calcHistory);
+    
     res.sendStatus(201);
+
 });
 
 
