@@ -60,7 +60,14 @@ app.get('/calcHistory', function(req, res){
 app.delete('/calcHistory', (req,res) =>{
     calcHistory.length = 0
     res.sendStatus(201);
-})
+});
+
+app.delete('/calcHistory', (req,res) =>{
+    calcHistory.length = 0
+    res.sendStatus(201);
+});
+
+
 
 
 
