@@ -26,7 +26,7 @@ main {
 }
 header {
     margin: 10px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .buttons {
@@ -98,12 +98,13 @@ header {
     padding: 15px;
     width: 250px; 
     box-shadow: 0 5px 6px 0 rgb(108, 108, 108);
+    border: 1git px solid rgb(108, 108, 108);
 }
 
 #equalsBtn {
     margin: 5px;
     padding: 5px;
-    height: 30px;
+    height: 35px;
     width: 100%;
     font-size: 20px;
     border: 1px solid rgb(52, 97, 60);
@@ -147,9 +148,11 @@ li:hover {
     cursor:initial;
     border: none;
     outline: none;
-    font-size: 25px;
+    font-size: 28px;
     font-family: technology;
-    letter-spacing: 2px;
-    
+    letter-spacing: 3px;
+    border: 2px 3px 0 0 solid rgb(65, 65, 65);
+    border-style: inset;
+
 }
 
