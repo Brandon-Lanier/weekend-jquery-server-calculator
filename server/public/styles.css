@@ -8,25 +8,43 @@ body, html {
     padding: 0
 }
 
-#wrapper {
+/* #wrapper {
     display: flex;
     flex-flow: column wrap;
     align-content: center;
-}
+} */
 
 #calculator {
+    display: flex;
+    width: 100%;
     align-self: center;
+    justify-content: center;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+#outputs {
+    disply: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0 auto;
+    margin: 0 auto;
 }
 
 main {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
     align-content: center;
+    align-items: center;
     text-align: center;
+    height: 100%;
 }
+
 header {
     margin: 10px;
     padding: 10px;
+    text-align: center;
 }
 
 .buttons {
@@ -91,6 +109,7 @@ header {
     border-bottom: 3px solid rgb(97, 65, 65);
     top: 3px;
 }
+
 #calcContainer {
     background-color: rgb(213, 215, 188);
     border-radius: 10px;
@@ -130,6 +149,9 @@ header {
     justify-content: center;;
 } */
 
+ul {
+    list-style: none;
+}
 li{
     margin: 15px;
 }

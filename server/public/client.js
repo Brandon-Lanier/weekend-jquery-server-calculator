@@ -9,7 +9,9 @@ function onReady(){
     // $('#historyList').on('click', '.historyItem', selectHistory);
     $('#historyList').on('click', '.deleteHistBtn', deleteHistoryEvent);
     $('#historyList').on('click', '.recallHistory', recallExpression)
-    resultHistory();
+    getHistory()
+    getResult()
+    // resultHistory();
 }
 
 // Make a function to evaluate the string entered before sending to server
@@ -45,25 +47,34 @@ function calculate() {
             }
         }
     }).then(function(response){
-        renderResult(response);
-        resultHistory(); 
+        getResult();
+        // resultHistory(); 
     })
     $("#inputField").val('')
     $('#calcContainer').one('click', '.operators', addOperator);
     }
 }
-
-function renderResult(result) {
-    $('#theResults').empty();
-    $('#theResults').append(result);
+function getResult() {
+    $.ajax({
+        method: 'GET',
+        url: '/calculate'
+    }).then(function(response){
+        renderResult(response);
+    })
 }
 
-function resultHistory() {
+function renderResult(res) {
+    $('#theResults').empty();
+    $('#theResults').append(res[0].result);
+    getHistory()
+}
+
+function getHistory() {
     $.ajax({
         method: 'GET',
         url: '/calcHistory'
     }).then(function(response){
-      renderHistory(response);
+        renderHistory(response);
     })
 }
 
@@ -91,7 +102,7 @@ function clearHistory() {
         method: 'DELETE',
         url: '/calcHistory'
     }).then(function(response){
-        resultHistory();
+        getHistory();
     }).catch(function(response){
         console.log('Failed to clear history');
     })
@@ -105,8 +116,9 @@ function recallExpression() {
 }
 
 function deleteHistoryEvent() {
+    $('#theResults').empty();
     let id = $(this).parent().attr('id');
-    $(this).parent().parent().remove();
+    // $(this).parent().parent().remove();
     $.ajax({
         method: 'DELETE',
         url: '/removeExp',
@@ -114,9 +126,9 @@ function deleteHistoryEvent() {
             index: id
             }
     }).then(function(response){
-        
+        getHistory();
     }).catch(function(response){
         console.log('Failed to delete expression');
     })
-    resultHistory();
+    
 }

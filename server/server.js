@@ -39,12 +39,14 @@ app.post('/calculate', function(req, res){
         result: result
     }
     calcHistory.unshift(store);
-    res.json(result);
+    res.sendStatus(201)
+    // res.json(result);
 });
 
 
 app.get('/calculate', function(req, res) {
-    res.send(result);
+    res.send(calcHistory);
+    
 });
 
 app.get('/calcHistory', function(req, res){
