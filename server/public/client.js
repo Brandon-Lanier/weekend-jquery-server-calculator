@@ -2,15 +2,16 @@ $(document).ready(onReady);
 
 function onReady(){
     $('#calcContainer').on('click', '.buttons', addMath);
-    $('#calcContainer').one('click', '.operators', addOperator);
+    // $('#calcContainer').one('click', '.operators', addOperator)
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', validateInput);
     $('#deleteBtn').on('click', clearHistory);
     // $('#historyList').on('click', '.historyItem', selectHistory);
     $('#historyList').on('click', '.deleteHistBtn', deleteHistoryEvent);
     $('#historyList').on('click', '.recallHistory', recallExpression)
-    getHistory()
-    getResult()
+    getHistory();
+    getResult();
+    allowOneOperator();
     // resultHistory();
 }
 
@@ -26,16 +27,31 @@ function addOperator() {
 
 function clearMath() {
     $("#inputField").val('');
-    $('#calcContainer').one('click', '.operators', addOperator);
+}
+
+function allowOneOperator() {
+    $('#calcContainer').one('click', '.operators', addOperator)
 }
 
 function validateInput() {
     $("#theResults").empty();
-    if ($("#inputField").val() === '') {
+    let el = $("#inputField").val()
+    let last = el.length - 1;
+    if (el === '') {
         $("#theResults").text('Please Enter Some Digits')
-} else {
-    calculate();
+    } else if (el.charAt(0) === '+' || el.charAt(0) === '-' || el.charAt(0) === '*' || el.charAt(0) === '/') {
+        $("#theResults").text('Invalid Expression');
+        $("#inputField").val('');
+        allowOneOperator()
+    } else if (el.charAt(last) === '+' || el.charAt(last) === '-' || el.charAt(last) === '*' || el.charAt(last) === '/') {
+        $("#theResults").text('Invalid Expression');
+        $("#inputField").val('');
+        allowOneOperator()
+    } else {
+        calculate();
+    }
 }
+
 
 function calculate() {
     $.ajax({
@@ -53,7 +69,7 @@ function calculate() {
     $("#inputField").val('')
     $('#calcContainer').one('click', '.operators', addOperator);
     }
-}
+
 function getResult() {
     $.ajax({
         method: 'GET',
@@ -66,8 +82,9 @@ function getResult() {
 function renderResult(res) {
     $('#theResults').empty();
     $('#theResults').append(res[0].result);
-    getHistory()
-}
+    getHistory();
+    }
+
 
 function getHistory() {
     $.ajax({
@@ -82,19 +99,12 @@ function renderHistory(arr) {
     $('#historyList').empty();
     for (let i = 0; i < arr.length; i++) {
         $('#historyList').append(`
-        <li class="historyItem" id="${i}" data-id(${arr[i].expression})>
+        <li class="historyItem" id="${i}">
         ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
         <button class="recallHistory">Recalculate Expression</button>
         <button class="deleteHistBtn">Delete Expression</button></li>`)
     }
 }
-    
-    // for (calc of arr) {
-    //     $('#historyList').append(`<li>
-    //     ${calc.num1} ${calc.operator} ${calc.num2} = ${calc.result}
-    //     </li>`)
-    // }
-
 
 function clearHistory() {
     $('#theResults').empty();
@@ -109,10 +119,8 @@ function clearHistory() {
 }
 
 function recallExpression() {
-    let id = $(this).closest('li').data('exp');
-    console.log(this);
+    let id = $(this).parent().attr('id');
     console.log(id);
-    
 }
 
 function deleteHistoryEvent() {
