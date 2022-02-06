@@ -9,7 +9,7 @@ function onReady() {
     $('#historyList').on('click', '.historyItem', getExpression);
     getHistory();
     getResult();
-    allowOneOperator();
+    allowOneOperator(); // Allows only one operator be selected
 }
 
 function addMath() {
@@ -62,12 +62,12 @@ function calculate() {
             }
         }
     }).then(function (response) {
-        getResult(); // Run a function to get the results from server if calculation is succesfull
+        getResult(); // Run a function to get the results from server if calculation is completed
+        $("#inputField").val('')
+        allowOneOperator(); // After calculating, Allow another operator for next expression
     }).catch(function (response) {
         console.log('Failed to calculate expression');
     })
-    $("#inputField").val('') // 
-    allowOneOperator();
 }
 
 function getResult() {
@@ -75,18 +75,17 @@ function getResult() {
         method: 'GET',
         url: '/calculate'
     }).then(function (response) {
-        renderResult(response);
-    }).catch(function(response){
+        renderResult(response); //Grabbing array from server and sending the render function to show on DOM
+    }).catch(function (response) {
         console.log('Failed to get results');
     })
 }
 
 function renderResult(res) {
-    $('#theResults').empty(); 
+    $('#theResults').empty();
     $('#theResults').append(res[0].result); // Display the most recent results in results field.
     getHistory(); // Run get history to update the calc history list
 }
-
 
 function getHistory() {
     $.ajax({
@@ -94,7 +93,7 @@ function getHistory() {
         url: '/calcHistory'
     }).then(function (response) {
         renderHistory(response); //Send history array from server through the render function
-    }).catch(function(response){
+    }).catch(function (response) {
         console.log('Failed to get calculation history');
     })
 }
@@ -128,7 +127,7 @@ function getExpression() {
         url: '/calcHistory',
     }).then(function (response) {
         renderExpression(response[id]); // Grabbing the array from server and sending the specific index through render expression.
-    }).catch(function(response){
+    }).catch(function (response) {
         console.log('Failed to get expression');
     })
 }
@@ -142,15 +141,15 @@ function renderExpression(obj) {
 
 function deleteHistoryEvent() {
     $('#theResults').empty();
-    let id = $(this).parent().attr('id');
+    let id = $(this).parent().attr('id'); //Grabbing index of the expression to send to server
     $.ajax({
         method: 'DELETE',
         url: '/removeExp',
         data: {
-            index: id
+            index: id //sending array index to server for deletion of selected expression
         }
     }).then(function (response) {
-        getHistory();
+        getHistory(); //Run get history upon completion so the history list can be updated on the DOM
     }).catch(function (response) {
         console.log('Failed to delete expression');
     })
