@@ -5,7 +5,7 @@ function onReady() {
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', validateInput);
     $('#eraserImg').on('click', clearHistory);
-    $('#historyList').on('click', '.fa-eraser', deleteHistoryEvent);
+    $('#historyList').on('click', '.eraserDiv', deleteHistoryEvent);
     $('#historyList').on('click', '.historyItem', getExpression);
     getHistory();
     getResult();
@@ -104,7 +104,7 @@ function renderHistory(arr) {
         $('#historyList').append(`
         <li class="historyItem" id="${i}">
         ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
-        <i class="fas fa-eraser"></i></li>`);
+        <div class="eraserDiv"><i class="fas fa-eraser"></i></div></li>`);
     }
 }
 

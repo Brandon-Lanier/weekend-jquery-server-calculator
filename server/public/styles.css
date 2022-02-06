@@ -222,3 +222,8 @@ h1 {
     font-size: 20px;
     margin-left: 20px;
 }
+
+.eraserDiv {
+    display: inline-block;
+    padding: 5px;
+}
