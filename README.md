@@ -15,9 +15,9 @@ The user has the option to erase all previous calculations from the list, or era
 Only valid expressions will be allowed into the calculator.  If an operator is missing or in an incorrect place, the user will be notified to enter a valid input.
 ## Screen Shot
 
-<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-salary-calculator/blob/master/screen1.png?raw=true) -->
+<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot1.png?raw=true) -->
 
-<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-salary-calculator/blob/master/screen2.png?raw=true) -->
+<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot2.png?raw=true) -->
 
 ### Prerequisites
 
