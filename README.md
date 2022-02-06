@@ -8,16 +8,16 @@ _Duration: 2 Day Sprint_
 
 This is basic calculator app that can handle simple expressions entered by the user and will store all previous calculations and results used.
 
-The user is allowed to enter two operands and one operator to compute any basic math (Addition, Subtraction, Multiplication and Division).  When the user clicks the equals button, the result of the expression will be show beneath the calculator while a copy of the full expression and result is stored in a history section.  The user can then access a previously used expression by clicking on it in the history section.  This will pull the expression back into the calculator interface and once again display the results.
+The user is allowed to enter two operands and one operator to compute any basic math equation(Addition, Subtraction, Multiplication and Division).  When the user clicks the equals button, the result of the expression will be show beneath the calculator while a copy of the full expression and result is stored in a history section.  The user can then access a previously used expression by clicking on it in the history section.  This will pull the expression back into the calculator interface and once again display the results.
 
 The user has the option to erase all previous calculations from the list, or erase just one of the calculations by selecting the eraser icon next to the expression.
 
 Only valid expressions will be allowed into the calculator.  If an operator is missing or in an incorrect place, the user will be notified to enter a valid input.
 ## Screen Shot
 
-<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot1.png?raw=true) -->
+![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot1.png?raw=true)
 
-<!-- ![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot2.png?raw=true) -->
+![alt text](https://github.com/Brandon-Lanier/weekend-jquery-server-calculator/blob/master/server/public/screenshot2.png?raw=true)
 
 ### Prerequisites
 
