@@ -5,17 +5,14 @@ function onReady(){
     // $('#calcContainer').one('click', '.operators', addOperator)
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', validateInput);
-    $('#deleteBtn').on('click', clearHistory);
+    $('#eraserImg').on('click', clearHistory);
     // $('#historyList').on('click', '.historyItem', selectHistory);
     $('#historyList').on('click', '.deleteHistBtn', deleteHistoryEvent);
-    $('#historyList').on('click', '.recallHistory', getExpression)
+    $('#historyList').on('click', '.historyItem', getExpression)
     getHistory();
     getResult();
     allowOneOperator();
-    // resultHistory();
 }
-
-// Make a function to evaluate the string entered before sending to server
 
 function addMath() {
     $("#inputField").val($("#inputField").val() + $(this).text());
@@ -106,8 +103,7 @@ function renderHistory(arr) {
         $('#historyList').append(`
         <li class="historyItem" id="${i}">
         ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
-        <button class="recallHistory">Recalculate Expression</button>
-        <button class="deleteHistBtn">Erase Expression</button></li>`)
+        <button class="deleteHistBtn"><i class="fas fa-eraser"></i></button></li>`)
     }
 }
 
@@ -124,7 +120,8 @@ function clearHistory() {
 }
 
 function getExpression() {
-    let id = $(this).parent().attr('id')
+    let id = $(this).attr('id')
+    console.log(id);
     $.ajax({
         method: 'GET',
         url: '/calcHistory',

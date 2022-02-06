@@ -40,25 +40,34 @@ body, html {
 #outputs {
     display: flex;
     flex-flow: column nowrap;
+    height: 100%;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     font-family: shadowsintoLight;
+    margin-left: 25px;
 }
 
 main {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    align-content: center;
-    align-items: center;
     text-align: center;
     height: 100%;
 }
 
-img {
-    width: 105px;
-    height: 275px;
+#pencilImg {
+    width: 127px;
+    height: 350px;
     margin: 0;
+}
+
+#eraserImg {
+    width: 130px;
+    height: 52px;
+}
+
+#eraserImg:hover {
+   cursor: pointer;
 }
 
 header {
@@ -172,6 +181,7 @@ header {
 ul {
     list-style: none;
     text-align: left;
+    padding: 0;
 }
 
 li{
@@ -201,3 +211,19 @@ li:hover {
     border-style: inset;
 }
 
+#outputs h2 {
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: shadowsintoLight;
+}
+
+.fa-eraser {
+    font-size: 20px;
+}
+
+#deleteHistBtn {
+    background-color: transparent;
+    border: none;
+}
