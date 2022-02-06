@@ -27,6 +27,7 @@ function addOperator() {
 
 function clearMath() {
     $("#inputField").val('');
+    $('#theResults').empty();
     allowOneOperator();
 }
 
@@ -133,8 +134,10 @@ function getExpression() {
 }
 
 function renderExpression(obj) {
-    
-    
+    $('#theResults').empty();
+    $('#inputField').val('');
+    $('#theResults').append(obj.result);
+    $('#inputField').val(obj.expression);
 }
 
 function deleteHistoryEvent() {
