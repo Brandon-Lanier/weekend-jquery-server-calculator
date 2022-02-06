@@ -61,6 +61,6 @@ app.delete('/removeExp', (req, res) => {
     res.sendStatus(201);
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log('listening on port', PORT)
 })
