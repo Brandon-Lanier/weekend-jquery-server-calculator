@@ -46,13 +46,13 @@ app.post('/calculate', function(req, res){
 
 app.get('/calculate', function(req, res) {
     res.send(calcHistory);
-    
 });
 
 app.get('/calcHistory', function(req, res){
     res.send(calcHistory);
     // console.log(calcHistory);
 })
+
 
 // app.delete('/calcHistory', function(req,res){
 //     calcHistory = [];

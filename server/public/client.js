@@ -8,7 +8,7 @@ function onReady(){
     $('#deleteBtn').on('click', clearHistory);
     // $('#historyList').on('click', '.historyItem', selectHistory);
     $('#historyList').on('click', '.deleteHistBtn', deleteHistoryEvent);
-    $('#historyList').on('click', '.recallHistory', recallExpression)
+    $('#historyList').on('click', '.recallHistory', getExpression)
     getHistory();
     getResult();
     allowOneOperator();
@@ -122,9 +122,19 @@ function clearHistory() {
     })
 }
 
-function recallExpression() {
-    let id = $(this).parent().attr('id');
-    console.log(id);
+function getExpression() {
+    let id = $(this).parent().attr('id')
+    $.ajax({
+        method: 'GET',
+        url: '/calcHistory',
+    }).then(function(response){
+        renderExpression(response[id]); 
+    })
+}
+
+function renderExpression(obj) {
+    
+    
 }
 
 function deleteHistoryEvent() {
