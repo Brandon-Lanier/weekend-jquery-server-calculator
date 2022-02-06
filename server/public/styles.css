@@ -16,11 +16,40 @@ body, html {
     background-repeat: no-repeat;
 }
 
-/* #wrapper {
+main {
     display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-} */
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    text-align: center;
+    height: 100%;
+}
+
+header {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+li{
+    margin: 15px;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+h1 {
+    font-family: shadowsintoLight;
+}
 
 #calculator {
     display: flex;
@@ -42,17 +71,9 @@ body, html {
     flex-flow: column nowrap;
     height: 100%;
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
     font-family: shadowsintoLight;
-    margin-left: 25px;
-}
-
-main {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    text-align: center;
-    height: 100%;
+    margin: 0 auto;
 }
 
 #pencilImg {
@@ -67,13 +88,89 @@ main {
 }
 
 #eraserImg:hover {
-   cursor: pointer;
+    cursor: pointer;
 }
 
-header {
-    margin: 10px;
-    padding: 10px;
+#equalsBtn {
+    margin: 5px;
+    padding: 5px;
+    height: 35px;
+    width: 200px;
+    font-size: 20px;
+    border: 1px solid rgb(52, 97, 60);
+    border-left: 2px solid rgb(61, 119, 72);
+    border-bottom: 5px solid rgb(60, 116, 71);
+    background-color: rgb(95, 182, 113);
+    position: relative;
+    color: white;
+}
+
+#equalsBtn:active{
+    border-bottom: 3px solid rgb(52, 97, 60);
+    border-left: 1px solid rgb(52, 97, 60);
+    top: 3px;
+}
+
+#clearBtn:active{
+    border-bottom: 3px solid rgb(97, 65, 65);
+    top: 3px;
+}
+
+#calcContainer {
+    background-color: rgb(213, 215, 188);
+    border-radius: 10px;
     text-align: center;
+    padding: 15px;
+    width: 250px; 
+    box-shadow: 0 5px 6px 0 rgb(108, 108, 108);
+    border: 1git px solid rgb(108, 108, 108);
+}
+
+#clearBtn {
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    border: 1px solid rgb(110, 66, 66);
+    border-bottom: 5px solid rgb(97, 65, 65);
+    background-color: rgb(198, 115, 115);
+    padding: 1px 7px 1px 7px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+}
+
+#equalsContainer {
+    display: flex;
+    justify-content: center;;
+}
+
+#deleteHistBtn {
+    background-color: transparent;
+    border: none;
+}
+
+#inputField {
+    background-color: black;
+    color: rgb(134, 198, 38);
+    width: 200px;
+    height: 50px;
+    text-align: right;
+    margin-bottom: 20px;
+    cursor:initial;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    font-family: technology;
+    letter-spacing: 3px;
+    border: 2px 3px 0 0 solid rgb(65, 65, 65);
+    border-style: inset;
+}
+
+#outputs h2 {
+    text-decoration: underline;
 }
 
 .buttons {
@@ -85,7 +182,6 @@ header {
     background-color: rgb(216, 216, 211);
     border: 1px solid rgb(123, 121, 118);
     border-bottom: 5px solid rgb(172, 169, 162);
-    /* background-color: rgb(210, 198, 153); */
     padding: 1px 7px 1px 7px;
     display: inline-block;
     position: relative;
@@ -118,112 +214,11 @@ header {
     top: 3px;
 }
 
-#clearBtn {
-    padding: 5px;
-    margin: 5px;
-    border: none;
-    width: 35px;
-    height: 35px;
-    font-size: 25px;
-    border: 1px solid rgb(110, 66, 66);
-    border-bottom: 5px solid rgb(97, 65, 65);
-    background-color: rgb(198, 115, 115);
-    padding: 1px 7px 1px 7px;
-    display: inline-block;
-    position: relative;
-    top: 0px;
-}
-
-#clearBtn:active{
-    border-bottom: 3px solid rgb(97, 65, 65);
-    top: 3px;
-}
-
-#calcContainer {
-    background-color: rgb(213, 215, 188);
-    border-radius: 10px;
-    text-align: center;
-    padding: 15px;
-    width: 250px; 
-    box-shadow: 0 5px 6px 0 rgb(108, 108, 108);
-    border: 1git px solid rgb(108, 108, 108);
-}
-
-#equalsBtn {
-    margin: 5px;
-    padding: 5px;
-    height: 35px;
-    width: 100%;
-    font-size: 20px;
-    border: 1px solid rgb(52, 97, 60);
-    border-left: 2px solid rgb(61, 119, 72);
-    border-bottom: 5px solid rgb(60, 116, 71);
-    background-color: rgb(95, 182, 113);
-    position: relative;
-    color: white;
-}
-
-#equalsBtn:active{
-    border-bottom: 3px solid rgb(52, 97, 60);
-    border-left: 1px solid rgb(52, 97, 60);
-    top: 3px;
-}
-
 .operators, .buttons, #equalsBtn, #clearBtn:hover {
     cursor: pointer;
 }
 
-/* #equalsContainer {
-    display: flex;
-    justify-content: center;;
-} */
-
-ul {
-    list-style: none;
-    text-align: left;
-    padding: 0;
-}
-
-li{
-    margin: 15px;
-    padding: 10px;
-    font-size: 25px;
-}
-
-li:hover {
-    cursor: pointer;
-}
-
-#inputField {
-    background-color: black;
-    color: rgb(134, 198, 38);
-    width: 200px;
-    height: 50px;
-    text-align: right;
-    margin-bottom: 20px;
-    cursor:initial;
-    border: none;
-    outline: none;
-    font-size: 28px;
-    font-family: technology;
-    letter-spacing: 3px;
-    border: 2px 3px 0 0 solid rgb(65, 65, 65);
-    border-style: inset;
-}
-
-#outputs h2 {
-    text-decoration: underline;
-}
-
-h1 {
-    font-family: shadowsintoLight;
-}
-
 .fa-eraser {
     font-size: 20px;
-}
-
-#deleteHistBtn {
-    background-color: transparent;
-    border: none;
+    margin-left: 20px;
 }
