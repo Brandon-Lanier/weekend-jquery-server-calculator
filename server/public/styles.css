@@ -1,7 +1,12 @@
 @font-face {
     font-family: technology;
-    src: url(Technology.ttf);
+    src: url(/fonts/Technology.ttf);
   }
+
+@font-face {
+  font-family: shadowsintoLight;
+  src: url(/fonts/ShadowsIntoLight-Regular.ttf)
+ }
 
 body, html {
     margin: 0;
@@ -11,32 +16,33 @@ body, html {
     background-repeat: no-repeat;
 }
 
-#paper {
-    font-family: cursive;
-
-}
 /* #wrapper {
     display: flex;
-    flex-flow: column wrap;
-    align-content: center;
+    flex-flow: wrap;
+    justify-content: center;
 } */
 
 #calculator {
     display: flex;
-    width: 100%;
-    align-self: center;
-    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%; 
+    align-items: center;
     padding: 0 auto;
     margin: 0 auto;
-    position: relative;
+    /* position: relative; */
+}
+
+#calcOutput {
+    font-family: shadowsintoLight;
+    font-size: 30px;
 }
 
 #outputs {
     display: flex;
+    flex-flow: column nowrap;
     width: 100%;
-    justify-content: center;
-    padding: 0 auto;
-    margin: 0 auto;
+    align-items: center;
+    font-family: shadowsintoLight;
 }
 
 main {
@@ -47,6 +53,12 @@ main {
     align-items: center;
     text-align: center;
     height: 100%;
+}
+
+img {
+    width: 105px;
+    height: 275px;
+    margin: 0;
 }
 
 header {
@@ -162,13 +174,10 @@ ul {
     text-align: left;
 }
 
-li:nth-child(odd) {
-    background-color: rgb(210, 210, 210);
-}
-
 li{
     margin: 15px;
     padding: 10px;
+    font-size: 25px;
 }
 
 li:hover {

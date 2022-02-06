@@ -27,6 +27,7 @@ function addOperator() {
 
 function clearMath() {
     $("#inputField").val('');
+    allowOneOperator();
 }
 
 function allowOneOperator() {
@@ -42,16 +43,19 @@ function validateInput() {
     } else if (el.charAt(0) === '+' || el.charAt(0) === '-' || el.charAt(0) === '*' || el.charAt(0) === '/') {
         $("#theResults").text('Invalid Expression');
         $("#inputField").val('');
-        allowOneOperator()
+        allowOneOperator();
     } else if (el.charAt(last) === '+' || el.charAt(last) === '-' || el.charAt(last) === '*' || el.charAt(last) === '/') {
         $("#theResults").text('Invalid Expression');
         $("#inputField").val('');
-        allowOneOperator()
-    } else {
+        allowOneOperator();
+    } else if (el.includes('+') || el.includes('-') || el.includes('*') || el.includes('/')) {
         calculate();
+    } else {
+        $("#theResults").text('Invalid Expression');
+        $("#inputField").val('');
+        // allowOneOperator();
     }
 }
-
 
 function calculate() {
     $.ajax({
@@ -102,7 +106,7 @@ function renderHistory(arr) {
         <li class="historyItem" id="${i}">
         ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
         <button class="recallHistory">Recalculate Expression</button>
-        <button class="deleteHistBtn">Delete Expression</button></li>`)
+        <button class="deleteHistBtn">Erase Expression</button></li>`)
     }
 }
 
