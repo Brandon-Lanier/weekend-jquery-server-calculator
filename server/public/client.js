@@ -149,7 +149,9 @@ function deleteHistoryEvent() {
             index: id //sending array index to server for deletion of selected expression
         }
     }).then(function (response) {
-        getHistory(); //Run get history upon completion so the history list can be updated on the DOM
+        getHistory();
+        $('#theResults').empty();
+        $('#inputField').val(''); //Run get history upon completion so the history list can be updated on the DOM
     }).catch(function (response) {
         console.log('Failed to delete expression');
     })
