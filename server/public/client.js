@@ -8,7 +8,6 @@ function onReady() {
     $('#historyList').on('click', '.eraserDiv', deleteHistoryEvent);
     $('#historyList').on('click', '.historyItem', getExpression);
     getHistory();
-    getResult();
     allowOneOperator(); // Allows only one operator be selected
 }
 

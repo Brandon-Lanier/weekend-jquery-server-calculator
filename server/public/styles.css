@@ -11,9 +11,9 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-image: url('pattern-wood-retro-desktop.jpeg');
+    background: url('pattern-wood-retro-desktop.jpg') no-repeat center center fixed; 
     background-size: cover;
-    background-repeat: no-repeat;
+    background-color: tan; 
 }
 
 main {
@@ -171,6 +171,11 @@ h1 {
 
 #outputs h2 {
     text-decoration: underline;
+}
+
+#calcOutput h2 {
+    margin: 0;
+    padding: 0;
 }
 
 .buttons {
