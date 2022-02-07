@@ -7,7 +7,7 @@ function onReady() {
     $('#equalsBtn').on('click', validateInput);
     $('#eraserImg').on('click', clearHistory);
     $('#historyList').on('click', '.eraserDiv', deleteHistoryEvent);
-    $('#historyList').on('click', '.historyItem', getExpression);
+    $('#historyList').on('click', '.recalculateIcon', getExpression);
     getHistory();
 }
 
@@ -105,7 +105,8 @@ function renderHistory(arr) {
         $('#historyList').append(`
         <li class="historyItem" id="${i}">
         ${arr[i].num1} ${arr[i].operator} ${arr[i].num2} = ${arr[i].result}  
-        <div class="eraserDiv"><i class="fas fa-eraser"></i></div></li>`);
+        <div class="recalculateIcon" title="Recalculate"><i class="fas fa-calculator"></i></div>
+        <div class="eraserDiv" title="Erase"><i class="fas fa-eraser"></i></div></li>`);
     }
 }
 
@@ -122,7 +123,7 @@ function clearHistory() {
 }
 
 function getExpression() {
-    let id = $(this).attr('id') // Array index of selected expression.
+    let id = $(this).parent().attr('id') // Array index of selected expression.
     $.ajax({
         method: 'GET',
         url: '/calcHistory',
@@ -142,7 +143,7 @@ function renderExpression(obj) {
 
 function deleteHistoryEvent() {
     $('#theResults').empty();
-    let id = $(this).parent().attr('id'); //Grabbing index of the expression to send to server
+    let id = $(this).parent().parent().attr('id'); //Grabbing index of the expression to send to server
     $.ajax({
         method: 'DELETE',
         url: '/removeExp',
@@ -156,5 +157,4 @@ function deleteHistoryEvent() {
     }).catch(function (response) {
         console.log('Failed to delete expression');
     })
-
 }

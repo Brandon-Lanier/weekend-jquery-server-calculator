@@ -43,10 +43,6 @@ li{
     font-weight: bold;
 }
 
-li:hover {
-    cursor: pointer;
-}
-
 h1 {
     font-family: shadowsintoLight;
 }
@@ -171,6 +167,9 @@ h1 {
 
 #outputs h2 {
     text-decoration: underline;
+    font-size: 35px;
+    margin: 0 0 15px 0;
+    padding: 0;
 }
 
 #calcOutput h2 {
@@ -235,4 +234,22 @@ h1 {
 .eraserDiv {
     display: inline-block;
     padding: 5px;
+}
+
+.eraserDiv:hover {
+    cursor: pointer;
+}
+
+.fa-calculator {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.recalculateIcon {
+    display: inline-block;
+    padding: 5px;
+}
+
+.recalculateIcon:hover {
+    cursor: pointer;
 }
