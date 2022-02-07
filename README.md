@@ -8,7 +8,7 @@ _Duration: 2 Day Sprint_
 
 This is basic calculator app that can handle simple expressions entered by the user and will store all previous calculations and results used.
 
-The user is allowed to enter two operands and one operator to compute any basic math equation(Addition, Subtraction, Multiplication and Division).  When the user clicks the equals button, the result of the expression will be show beneath the calculator while a copy of the full expression and result is stored in a history section.  The user can then access a previously used expression by clicking on it in the history section.  This will pull the expression back into the calculator interface and once again display the results.
+The user is allowed to enter two operands and one operator to compute any basic math equation(Addition, Subtraction, Multiplication and Division).  When the user clicks the equals button, the result of the expression will be show beneath the calculator while a copy of the full expression and result is stored in a history section.  The user can then access a previously used expression by clicking on the calculator next to the expression.  This will pull the expression back into the calculator interface and once again display the results.
 
 The user has the option to erase all previous calculations from the list, or erase just one of the calculations by selecting the eraser icon next to the expression.
 
@@ -32,7 +32,7 @@ No installation required.
 1. Enter a valid expression on the calculator. (e.g. a + b)
 2. Press the equals button for results.
 3. If needed, press the "c" button to clear the current input.
-4. To access a previous calculation, click on the expression in the history list.
+4. To access a previous calculation, click on the calculator icon next to the expression.
 5. To erase the whole history list, click on the eraser at the top of the list.
 6. To erase just one previous expression, click on the eraser next to that expression.
 7. Have fun.
@@ -51,6 +51,8 @@ Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped m
 Thanks to everyone in the Adam's Cohort for your continued support during our second week of tier 2!
 
 Thanks to my Wife, Allison, for being my UX tester.
+
+Thanks to Google Fonts for providing fonts.
 
 ## Support
 If you have suggestions or issues, please feel free to contact me at [Brandonjlanier@gmail.com](mailto:brandonjlanier@gmail.com)
