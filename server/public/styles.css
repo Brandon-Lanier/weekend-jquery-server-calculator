@@ -219,6 +219,10 @@ h1 {
     top: 3px;
 }
 
+.operators:disabled {
+    color: black;
+}
+
 .operators, .buttons, #equalsBtn, #clearBtn:hover {
     cursor: pointer;
 }

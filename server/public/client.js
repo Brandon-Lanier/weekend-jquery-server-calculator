@@ -2,13 +2,13 @@ $(document).ready(onReady);
 
 function onReady() {
     $('#calcContainer').on('click', '.buttons', addMath);
+    $('#calcContainer').on('click', '.operators', addOperator)
     $('#clearBtn').on('click', clearMath);
     $('#equalsBtn').on('click', validateInput);
     $('#eraserImg').on('click', clearHistory);
     $('#historyList').on('click', '.eraserDiv', deleteHistoryEvent);
     $('#historyList').on('click', '.historyItem', getExpression);
     getHistory();
-    allowOneOperator(); // Allows only one operator be selected
 }
 
 function addMath() {
@@ -16,17 +16,19 @@ function addMath() {
 }
 
 function addOperator() {
-    $("#inputField").val($("#inputField").val() + $(this).text()); // Adds operator to input
+    $('.operators').attr('disabled', 'disabled'); // After click, disable operators so user can't select more than one.
+    $('#inputField').val($("#inputField").val() + $(this).text()); // Adds operator to input
 }
 
 function clearMath() {
-    $("#inputField").val(''); // Clear input field
+    $('#inputField').val(''); // Clear input field
     $('#theResults').empty(); // Clear results
     allowOneOperator(); // Allow another operator be selected.
 }
 
-function allowOneOperator() { //Allows for only one operator to be clicked
-    $('#calcContainer').one('click', '.operators', addOperator)
+function allowOneOperator() { // Allows operator to be clicked again.
+    $('.operators').removeAttr('disabled');
+   
 }
 
 function validateInput() {
